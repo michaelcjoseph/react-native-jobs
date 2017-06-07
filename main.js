@@ -1,6 +1,8 @@
 import Expo from 'expo';
 import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
+import store from './src/store';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import AuthScreen from './src/screens/AuthScreen';
 import MapScreen from './src/screens/MapScreen';
@@ -28,7 +30,9 @@ class App extends React.Component {
     });
 
     return (
-      <MainNavigator />
+      <Provider store={store}>
+        <MainNavigator />
+      </Provider>
     );
   }
 }
